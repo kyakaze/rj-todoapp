@@ -18,7 +18,6 @@ const InputTodo = props => {
       body: text,
       due: startDate.toString(),
       done: false,
-      deleted: false
     }
     setText('')
     props.setState(props.state.concat(todo))
