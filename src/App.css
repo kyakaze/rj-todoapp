@@ -93,9 +93,19 @@ body {
   color:green;
   cursor:pointer;
   min-height:50px;
+  font-size: 1rem;
   flex-direction: row;
   justify-content:space-between;
+  align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.todo-right-group{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding:10px;
 }
 
 .datepicker {

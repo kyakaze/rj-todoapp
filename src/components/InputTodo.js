@@ -16,7 +16,7 @@ const InputTodo = props => {
     const todo = {
       id:randomstring.generate(4),
       body: text,
-      due: startDate,
+      due: startDate.toString(),
       done: false,
       deleted: false
     }

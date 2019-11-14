@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     const localState = localStorage.getItem('state')
     const localUser = localStorage.getItem('user')
-    if (localState) {
+    if (localUser && localState) {
       setState(JSON.parse(localState))
       setUser(JSON.parse(localUser))
     } else {
@@ -28,6 +28,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('state', JSON.stringify(state))
+    console.log('object')
   }, [state])
 
   useEffect(() => {
@@ -36,11 +37,11 @@ function App() {
 
   return (
     <div className="my-container">
-      <div className="main">
+      {state != null && <div className="main">
         <Welcome name={user} />
         <InputTodo state={state} setState={setState} />
         <TodoList state={sortDay(state)} setState={setState} />
-      </div>
+      </div>}
     </div>
   );
 }
@@ -59,11 +60,14 @@ const TodoList = props => {
   }
   return (
     <div className='todo-list-box'>
-      {props.state.map((el) => {
+      {props.state.length > 0 && props.state.map((el) => {
         return (
           <div className="todo" key={el.id}>
             <div onClick={() => markDone(el.id)} className={el.done ? 'done' : ''} >{el.body}</div>
-            <i onClick={() => handleDelete(el.id)} className="fas fa-trash-alt red"></i>
+            <div className="todo-right-group">
+              <span style={{marginRight:'5px'}}>{new Date(el.due).toDateString()} - {new Date(el.due).toLocaleTimeString()} </span>
+              <i onClick={() => handleDelete(el.id)} className="fas fa-trash-alt red"></i>
+            </div>
           </div>
         )
       }
