@@ -1,22 +1,123 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
+.App-center {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+body { 
+  background: url(/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.my-container {
+  margin-top:5%;
+  margin-bottom:5%;
+  padding-left:15%;
+  padding-right:15%;
+}
+
+.main {
+  height: calc(100vh - 160px);
+  width:100%;
+  background-color:rgba(207, 207, 207, 0.644);
+  border-radius: 20px;
+  padding:2%;
+  display:flex;
+  flex-direction: column;
+}
+
+.welcome {
+  width:100%;
+  padding:2% 5% 2% 5%;
+}
+
+.time {
+  font-style:italic;
+}
+
+.input-box {
+  padding: 0 5% 0 5%;
+  display:flex;
+  align-items:center;
+  justify-content: space-around;
+  flex-direction:row;
+}
+.input-left-group {
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+}
+
+.input {
+  padding-left:2%;
+  width:100%;
+  height:50px;
+  /* border-radius:5px; */
+  background-color:rgba(241, 241, 241, 0);
+  border:none;
+  border-bottom: solid 0.5px deeppink;
+  outline:none;
+  color: deeppink;
+  font-size: 1.2rem;
+}
+
+.my-icon {
+  height :90%;
+  color:deeppink;
+}
+
+
+::placeholder { 
+  color: deeppink;
+  font-size: 1.2rem;
+}
+
+.todo-list-box {
+  width:100%;
+  height:100%;
+  padding:5% 5% 2% 5%;
+  overflow-y:auto
+}
+
+.todo {
+  width:100%;
+  display:flex;
+  color:green;
+  cursor:pointer;
+  min-height:50px;
+  flex-direction: row;
+  justify-content:space-between;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.datepicker {
+  width:200%;
+  font-size: 1rem;
+  border:none;
+  color:deeppink;
+  background-color:rgba(241, 241, 241, 0);
+}
+.datepicker:focus {
+  width:200%;
+  font-size: 1rem;
+  outline:none;
+  border:none;
+  color:deeppink;
+  background-color:rgba(241, 241, 241, 0);
+}
+.red {
+  color:red
+}
+
+.done {
+  color:grey;
+  text-decoration: line-through;
 }
