@@ -9,7 +9,9 @@ const sortDay = array => {
   array.sort((b, a) => {
     return new Date(b.due) - new Date(a.due);
   });
-  return array
+  const undone = array.filter(el => !el.done)
+  const done = array.filter(el => el.done)
+  return undone.concat(done)
 }
 
 function App() {
@@ -17,25 +19,20 @@ function App() {
   const [user, setUser] = useState('')
 
   useEffect(() => {
-    const localState = localStorage.getItem('state')
-    const localUser = localStorage.getItem('user')
-    if (localUser && localState) {
-      setState(JSON.parse(localState))
-      setUser(JSON.parse(localUser))
+    const localState = localStorage.getItem('todos')
+    if (localState) {
+      setState(JSON.parse(localState).state)
+      setUser(JSON.parse(localState).user)
     } else setUser(prompt('Enter your name please'))
   }, [])
 
   useEffect(() => {
-    localStorage.setItem('state', JSON.stringify(state))
+    localStorage.setItem('todos', JSON.stringify({ state: state, user: user }))
   }, [state])
-
-  useEffect(() => {
-    localStorage.setItem('user', JSON.stringify(user))
-  }, [user])
 
   return (
     <div className="my-container">
-       <div className="main">
+      <div className="main">
         <Welcome name={user} />
         <InputTodo state={state} setState={setState} />
         <TodoList state={sortDay(state)} setState={setState} />

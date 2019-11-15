@@ -12,6 +12,9 @@ const InputTodo = props => {
     if (text.length < 1) {
       alert('Enter your task')
       return
+    } else if (text.length > 85) {
+      alert('too long, must be less then 150')
+      return
     }
     const todo = {
       id:randomstring.generate(4),
